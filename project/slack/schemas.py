@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from typing import List
-
-from pydantic import BaseModel, Extra, Field
+from pydantic import BaseModel
+from pydantic import Extra
+from pydantic import Field
 
 
 class Event(BaseModel):
@@ -18,7 +18,7 @@ class SlackEvent(BaseModel):
         extra = Extra.allow
 
     token: str = Field(
-        ..., title='A verification token to validate the event originated from Slack'
+        ..., title='A verification token to validate the event originated from Slack',
     )
     team_id: str = Field(
         ...,
@@ -27,7 +27,8 @@ class SlackEvent(BaseModel):
     )
     api_app_id: str = Field(
         ...,
-        description=' Use this to distinguish which app the event belongs to if you use multiple apps with the same Request URL.',
+        description=' Use this to distinguish which app the event belongs to if'
+        ' you use multiple apps with the same Request URL.',
         examples=['A2H9RFS1A'],
         title='The unique identifier your installed Slack application.',
     )
@@ -42,7 +43,7 @@ class SlackEvent(BaseModel):
                 'channel': 'D0PNCRP9N',
                 'event_ts': '1525215129.000001',
                 'channel_type': 'app_home',
-            }
+            },
         ],
         title='The actual event, an object, that happened',
     )
@@ -61,8 +62,10 @@ class SlackEvent(BaseModel):
         examples=[1525215129],
         title='The epoch timestamp in seconds indicating when this event was dispatched.',
     )
-    authed_users: List[str] = Field(
+    authed_users: list[str] = Field(
         ...,
         min_items=1,
-        title='An array of string-based User IDs. Each member of the collection represents a user that has installed your application/bot and indicates the described event would be visible to those users.',
+        title='An array of string-based User IDs. Each member of the collection represents a '
+        'user that has installed your application/bot and indicates the described event '
+        'would be visible to those users.',
     )

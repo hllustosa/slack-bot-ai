@@ -1,5 +1,7 @@
-from project.confluence import DataLoader
-from project.llm.vector_store import VectorStore
+from __future__ import annotations
+
+from project.data.vector_store import VectorStore
+from project.sources.confluence.data_loader import DataLoader
 
 
 class IngestConfluenceSpaceUseCase:

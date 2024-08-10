@@ -1,10 +1,14 @@
-from langchain_openai import ChatOpenAI
-from langchain_core.tools import tool
-from project.use_cases.query_confluence import QueryConfluenceUseCase
-from project.use_cases.perform_web_search_with_llm import PerformWebSearchUseCase
+from __future__ import annotations
 
-GPT_4o_MINI_BASE = ChatOpenAI(model="gpt-4o-mini")
-GPT_4o_MINI_NO_TOOLS = ChatOpenAI(model="gpt-4o-mini")
+from langchain_core.tools import tool
+from langchain_openai import ChatOpenAI
+
+from project.use_cases.perform_web_search_with_llm import PerformWebSearchUseCase
+from project.use_cases.query_confluence import QueryConfluenceUseCase
+
+GPT_4o_MINI_BASE = ChatOpenAI(model='gpt-4o-mini')
+GPT_4o_MINI_NO_TOOLS = ChatOpenAI(model='gpt-4o-mini')
+
 
 @tool
 def query_confluence(query: str):
@@ -17,7 +21,7 @@ def query_confluence(query: str):
 
     """
     result = QueryConfluenceUseCase.run_as_tool(query, GPT_4o_MINI_BASE)
-    return result.get("answer")  # TODO: format a decent answer with the links
+    return result.get('answer')  # TODO: format a decent answer with the links
 
 
 @tool
@@ -34,7 +38,8 @@ def web_search(query: str):
     """
     return PerformWebSearchUseCase.run_as_tool(query)
 
-@tool 
+
+@tool
 def answer_general_question(query: str):
     """Uses an LLM Engine to answer the user question. Use this if
        the query is not related to the company's internal knowledge base, or
@@ -53,11 +58,12 @@ tools = [query_confluence, web_search, answer_general_question]
 
 GPT_4o_MINI = GPT_4o_MINI_BASE.bind_tools(tools)
 
+
 def get_selected_tool(tool_call):
     selected_tool = {
-        "query_confluence": query_confluence,
-        "web_search": web_search,
-        "answer_general_question": answer_general_question,
-    }[tool_call["name"].lower()]
+        'query_confluence': query_confluence,
+        'web_search': web_search,
+        'answer_general_question': answer_general_question,
+    }[tool_call['name'].lower()]
 
     return selected_tool

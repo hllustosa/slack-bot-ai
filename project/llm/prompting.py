@@ -1,9 +1,8 @@
-from langchain.prompts.chat import (
-    ChatPromptTemplate,
-    HumanMessagePromptTemplate,
-    SystemMessagePromptTemplate,
-)
+from __future__ import annotations
 
+from langchain.prompts.chat import ChatPromptTemplate
+from langchain.prompts.chat import HumanMessagePromptTemplate
+from langchain.prompts.chat import SystemMessagePromptTemplate
 
 
 system_template = """Use the following pieces of context to answer the user's question.
@@ -16,7 +15,7 @@ as slack flavored markdown.
 ----------------
 {context}"""
 
-human_template = "{question}"
+human_template = '{question}'
 
 messages = [
     SystemMessagePromptTemplate.from_template(system_template),

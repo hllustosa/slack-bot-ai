@@ -1,1 +1,1 @@
-from langchain_core.tools import tool
+from __future__ import annotations

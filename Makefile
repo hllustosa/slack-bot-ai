@@ -6,3 +6,6 @@ docker_start_all: docker_build
 
 docker_stop_all:
 	@docker compose stop
+
+lint:
+	poetry run pre-commit install && poetry run pre-commit run -a -v

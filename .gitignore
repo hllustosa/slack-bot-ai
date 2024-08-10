@@ -1,4 +1,63 @@
-.docker 
+# Byte-compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+donwloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.venv/
+.installed.cfg
+*.egg
 .env
-__pycache__
+.venv/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Pip Logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*,coverage
+.hypothesis/
+
+# Transalations
+*.mo
+*.pot
+
+# Django stuff
+*.log
+
+# VS Code
+.vscode
+
+# MyPy
+.mypy_cache
+
+# SqlLite
 *.db

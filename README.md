@@ -9,10 +9,10 @@ tools are mostly implemented according to LangChain examples
 
 ## Goals
 
-- As a Developer, I'd like to be able to deploy a Slack assistant that can be installed 
+- As a Developer, I'd like to be able to deploy a Slack assistant that can be installed
     in any workspace
 
-- As a User, I'd like to message the bot directly or mention it on a channel, and have 
+- As a User, I'd like to message the bot directly or mention it on a channel, and have
     an answer to my query
 
 - As a User, I'd like my bot to have access to web search and internal documentation, and
@@ -44,5 +44,5 @@ Most important first:
 ## Possible Features
 
 - [ ] Message history and expanded context for answers
-- [ ] Multiple Retrievers (Library docs, community references, RSS Feeds) 
+- [ ] Multiple Retrievers (Library docs, community references, RSS Feeds)
 - [ ] Slash commands (/tldr, /remindme, /research)
